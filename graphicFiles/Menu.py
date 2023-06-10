@@ -1,7 +1,7 @@
 import pygame
-from Button import *
-from Buttons import *
-from constValues import *
+from graphicFiles.Button import *
+from graphicFiles.Buttons import *
+from graphicFiles.constValues import *
 
 
 class Menu:

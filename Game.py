@@ -1,9 +1,6 @@
-import pygame
-from Button import Button
-from Buttons import Buttons
-from Menu import *
-from GameWindow import *
-from constValues import *
+from graphicFiles.Menu import *
+from graphicFiles.GameWindow import *
+from graphicFiles.constValues import *
 
 
 class Game:
