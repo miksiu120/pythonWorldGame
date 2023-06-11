@@ -15,6 +15,8 @@ class Square:
         text = pygame.font.SysFont("Arial.ttf", 20).render(self.organismToShow, True, (0, 0, 0))
         screen.blit(text, (self.posX, self.posY))
 
+    def setAscii(self, ascii):
+        self.organismToShow = ascii
 
 
 

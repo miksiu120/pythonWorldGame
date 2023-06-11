@@ -41,10 +41,22 @@ class Game:
                     if event.key == pygame.K_1:
                         print("1")
                         self.createNewGame()
+                        self.handlerType = "game"
                     elif event.key == pygame.K_2:
                         print("2")
+                        self.handlerType = "game"
                     elif event.key == pygame.K_3:
                         self.running = False
+                elif self.handlerType == "game":
+                    if event.key == pygame.K_w:
+                        print ("w")
+                        self.gameWindow.movePlayer('w')
+                    elif event.key == pygame.K_s:
+                        self.gameWindow.movePlayer('s')
+                    elif event.key == pygame.K_a:
+                        self.gameWindow.movePlayer('a')
+                    elif event.key == pygame.K_d:
+                        self.gameWindow.movePlayer('d')
 
     def playGame(self):
         while self.running:

@@ -1,6 +1,7 @@
 import random
 from Coordinates import Coordinates
 
+
 class Organism:
     def __init__(self, ourWorld, strength, initiative, x, y, asciiRepresentation, name):
         self.ourWorld = ourWorld
@@ -9,6 +10,8 @@ class Organism:
         self.asciiRepresentation = asciiRepresentation
         self.name = name
         self.position = Coordinates(x, y)
+        self.isOrganismDeleted = False
+        self.age = 0
 
     def action(self):
         pass
@@ -96,7 +99,7 @@ class Organism:
         self.position = newPosition
 
     def getRandomNeighbour(self):
-        direction = self.random.randint(0, 3)
+        direction = random.randint(0, 3)
         if direction == 0:
             return Coordinates(1, 0)
         elif direction == 1:

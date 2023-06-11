@@ -1,4 +1,5 @@
 import random
+import copy
 from Organism import Organism
 from Coordinates import Coordinates
 class Plant(Organism):
@@ -19,7 +20,7 @@ class Plant(Organism):
             moveTo = self.getRandomNeighbour()
             newCoords = Coordinates(self.getX() + moveTo.getX(), self.getY() + moveTo.getY())
             if self.canMove(newCoords) and self.ourWorld.getFromPosition(newCoords) is None:
-                newPlant = Plant(self)
+                newPlant = copy.deepcopy(self)
                 newPlant.setPosition(newCoords)
                 newPlant.setAge(0)
                 self.ourWorld.addNewElementToWorld(newPlant)

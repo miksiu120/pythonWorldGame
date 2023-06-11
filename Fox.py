@@ -8,7 +8,7 @@ class Fox(Animal):
         self.initative = initative
         super().__init__(ourWorld, self.strength, self.initative, posX, posY, 'F', "Lis")
 
-    def action(self, collided):
+    def action(self):
         moveTo = self.getRandomNeighbour()
         newCoords = Coordinates(self.getX() + moveTo.getX(), self.getY() + moveTo.getY())
         organismOnNewCoords = self.ourWorld.getFromPosition(newCoords)

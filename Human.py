@@ -51,7 +51,7 @@ class Human(Animal):
             super().collision(attacker)
         elif animal is not None:
             newCoords = self.getEmptyNeighbour()
-
+            self.ourWorld.addNewLog("Czlowiek odbija atak od " + attacker.getName())
             if newCoords.getX() != -1 and newCoords.getY() != -1:
                 attacker.setPosition(newCoords)
 

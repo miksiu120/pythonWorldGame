@@ -2,6 +2,7 @@
 from Coordinates import Coordinates
 from importsOrganisms import *
 import random
+from functools import cmp_to_key
 class World:
     def __init__(self, worldWidth,worldHeight):
         self.worldWidth = worldWidth
@@ -14,7 +15,7 @@ class World:
         self.logs = []
         self.mapPositions = []
         self.mainCharacter = None
-
+        self.logsPointer = []
         self.setUpWorld()
 
     def setUpWorld(self):
@@ -101,11 +102,10 @@ class World:
                     human.action(pressed)
                 self.organisms[i].increaseAge()
 
-        comparator = lambda first, second: -1 if first.getInitiative() > second.getInitiative() or (
-                    first.getInitiative() == second.getInitiative() and first.getAge() > second.getAge()) else 1
+        comparator = lambda first, second: -1 if (first.getInitiative() > second.getInitiative()) or (first.getInitiative() == second.getInitiative() and first.getAge() > second.getAge()) else 1
 
         self.killOrganismsFromKillList()
-        self.organisms.sort(comparator)
+        self.organisms.sort(key=cmp_to_key(comparator))
 
     def getOrganisms(self):
         return self.organisms
