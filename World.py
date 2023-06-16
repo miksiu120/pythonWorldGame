@@ -145,7 +145,7 @@ class World:
         return self.mainCharacter is not None
 
     def getMapPosition(self):
-        return self.mapPosition
+        return self.mapPositions
 
     def getMapSize(self):
         return self.mapSize

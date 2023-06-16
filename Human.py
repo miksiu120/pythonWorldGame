@@ -3,7 +3,8 @@ from Coordinates import Coordinates
 
 class Human(Animal):
 
-    def __init__(self, ourWorld, posX, posY, strength = 5, initative = 4, alzurShieldCooldown = 0):
+    def __init__(self, ourWorld, posX, posY, strength = 5, initative = 4, alzurShieldCooldown = 0,age=0):
+        self.age = age
         super().__init__(ourWorld, strength, initative, posX, posY, '7', "Czlowiek")
         self.alzurShieldCooldown = alzurShieldCooldown
         self.isShieldActive = False

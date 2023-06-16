@@ -6,8 +6,8 @@ class Guarana(Plant):
 
 
 
-    def __init__(self, ourWorld, posX, posY, strength = 0, initative = 0):
-
+    def __init__(self, ourWorld, posX, posY, strength = 0, initative = 0,age=0):
+        self.age = age
         super().__init__(ourWorld, strength, initative, posX, posY, 'U', 5, "Guarana")
 
     def collision(self, element):

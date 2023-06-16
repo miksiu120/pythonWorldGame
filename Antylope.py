@@ -3,7 +3,8 @@ from Animal import Animal
 
 class Antylope(Animal):
 
-    def __init__(self, ourWorld, posX, posY, strength = 4, initative = 4):
+    def __init__(self, ourWorld, posX, posY, strength = 4, initative = 4,age=0):
+        self.age = age
         super().__init__(ourWorld, strength, initative, posX, posY, 'T', "Antylopa")
 
     def action(self):

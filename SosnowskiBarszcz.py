@@ -7,7 +7,8 @@ from Plant import Plant
 class SosnowskiBarszcz(Plant):
     SPAWN_RATIO = 57
 
-    def __init__(self, ourWorld, posX, posY, strength=10, initative=0):
+    def __init__(self, ourWorld, posX, posY, strength=10, initative=0, age=0):
+        self.age = age
         super().__init__(ourWorld, strength, initative, posX, posY, '0', 57, "Barszcz sosnowskiego")
 
     def action(self):

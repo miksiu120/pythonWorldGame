@@ -5,7 +5,8 @@ from Coordinates import Coordinates
 class Plant(Organism):
     DEFAULT_SPAWN_RATIO = 5
 
-    def __init__(self, world, strength, initiative, x, y, symbol, spawnRatio, name):
+    def __init__(self, world, strength, initiative, x, y, symbol, spawnRatio, name,age=0):
+        self.age = age
         super().__init__(world, strength, initiative, x, y, symbol, name)
         self.SPAWN_RATIO = spawnRatio
 

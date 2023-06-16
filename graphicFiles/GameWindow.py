@@ -36,6 +36,8 @@ class GameWindow:
 
 
     def draw(self):
+
+
         for i in range(self.blocksWidth):
             for j in range(self.blocksHeight):
                 self.squares[i][j].draw(self.screen)
@@ -44,3 +46,9 @@ class GameWindow:
         self.world.makeActions(direction)
         self.updateSquares()
         self.logPanel.writeLogs()
+        print("wykonanie")
+
+
+
+    def getWorld(self):
+        return self.world

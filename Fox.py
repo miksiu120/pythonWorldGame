@@ -3,7 +3,8 @@ from Coordinates import Coordinates
 class Fox(Animal):
 
 
-    def __init__(self, ourWorld, posX, posY, strength = 3, initative = 7):
+    def __init__(self, ourWorld, posX, posY, strength = 3, initative = 7,age=0):
+        self.age = age
         self.strength = strength
         self.initative = initative
         super().__init__(ourWorld, self.strength, self.initative, posX, posY, 'F', "Lis")
