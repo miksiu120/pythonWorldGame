@@ -19,9 +19,9 @@ class Game:
         self.dataSaver = DataSaver(self.gameWindow.getWorld())
         self.handlerType = "menu"
 
-    def createNewGame(self):
+    def createNewGame(self, width, height):
         self.handlerType = "game"
-        self.gameWindow = GameWindow(15, 15, self.screen)
+        self.gameWindow = GameWindow(width, height, self.screen)
         self.dataSaver = DataSaver(self.gameWindow.getWorld())
         screen = pygame.display.set_mode((15 * BLOCK_WIDTH, 15 * BLOCK_HEIGHT))
 
@@ -44,10 +44,14 @@ class Game:
                 elif self.handlerType == "game":
                     self.gameEventHandler(event)
 
+
     def menuEventHandler(self, event):
         if event.key == pygame.K_1:
             print("1")
-            self.createNewGame()
+            print("Podaj szerokość i wysokość:")
+            width = input()
+            height = input()
+            self.createNewGame(int(width), int(height))
             self.handlerType = "game"
         elif event.key == pygame.K_2:
             print("2")
@@ -69,6 +73,8 @@ class Game:
             self.gameWindow.movePlayer('a')
         elif event.key == pygame.K_d:
             self.gameWindow.movePlayer('d')
+        elif event.key == pygame.K_g:
+            self.gameWindow.movePlayer('g')
         elif event.key == pygame.K_z:
             self.dataSaver.save_game()
 

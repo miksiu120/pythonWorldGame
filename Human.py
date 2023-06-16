@@ -13,6 +13,7 @@ class Human(Animal):
         if self.alzurShieldCooldown > 0:
             self.alzurShieldCooldown -= 1
 
+
         if ascii == 'a' and self.canMove(Coordinates(self.getX() - 1, self.getY())):
             potential = self.ourWorld.getFromPosition(Coordinates(self.getX() - 1, self.getY()))
             self.ourWorld.addNewLog("Czlowiek idzie na pole (" + str(self.getX() - 1) + " " + str(self.getY()) + ")")
@@ -36,6 +37,9 @@ class Human(Animal):
 
         if self.alzurShieldCooldown == 5:
             self.isShieldActive = False
+
+        if self.alzurShieldCooldown >5:
+            self.ourWorld.addNewLog("Tur do konca tarczy Alzura: " + str(self.alzurShieldCooldown - 5))
 
         if ascii == 'g' and self.alzurShieldCooldown == 0:
             self.alzurShieldCooldown = 10

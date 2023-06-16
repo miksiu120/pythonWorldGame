@@ -3,6 +3,8 @@ from Coordinates import Coordinates
 from typing import List
 from Organism import Organism
 from Plant import Plant
+from importsOrganisms import *
+from CyberSheep import CyberSheep
 
 class SosnowskiBarszcz(Plant):
     SPAWN_RATIO = 57
@@ -24,5 +26,5 @@ class SosnowskiBarszcz(Plant):
         ]
 
         for org in nearbyArea:
-            if org is not None:
+            if org is not None and isinstance(org, CyberSheep) is None:
                 self.ourWorld.addToKillList(org)

@@ -4,8 +4,10 @@ class Animal(Organism):
     def __init__(self, ourWorld, strength, initiative, x, y, asciiRep, animal):
         super().__init__(ourWorld, strength, initiative, x, y, asciiRep, animal)
 
-    def action(self):
-        moveTo = self.getRandomNeighbour()
+    def action(self, moveTo=None):
+        if moveTo is None:
+            moveTo = self.getRandomNeighbour()
+
         newCoords = Coordinates(self.getX() + moveTo.getX(), self.getY() + moveTo.getY())
         organismOnNewCoords = self.ourWorld.getFromPosition(newCoords)
 

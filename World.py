@@ -41,7 +41,7 @@ class World:
         self.organisms.append(mainCharacter)
 
     def getRandomOrganism(self):
-        randomNumberOfOrg = random.randint(0, 9)
+        randomNumberOfOrg = random.randint(0, 10)
         # randomNumberOfOrg = 4
 
         if randomNumberOfOrg == 0:
@@ -62,8 +62,11 @@ class World:
             newOrganism = Grass(self, int(random.random() * self.mapSize.getX()), int(random.random() * self.mapSize.getY()))
         elif randomNumberOfOrg == 8:
             newOrganism = Guarana(self, int(random.random() * self.mapSize.getX()), int(random.random() * self.mapSize.getY()))
-        else:
+        elif randomNumberOfOrg == 9:
             newOrganism = SosnowskiBarszcz(self, int(random.random() * self.mapSize.getX()),
+                                           int(random.random() * self.mapSize.getY()))
+        elif randomNumberOfOrg == 10:
+            newOrganism = CyberSheep(self, int(random.random() * self.mapSize.getX()),
                                            int(random.random() * self.mapSize.getY()))
 
         return newOrganism
@@ -161,6 +164,24 @@ class World:
 
     def addNewLog(self, log):
         self.logsPointer.append(log)
+
+    def isBarszczOnBoard(self):
+        for organism in self.organisms:
+            if isinstance(organism, SosnowskiBarszcz):
+                return True
+        return False;
+
+    def getClosestBarszczCords(self, cyberSheep):
+        closestBarszcz = None
+        closestDistance = 1000000
+        for organism in self.organisms:
+            if isinstance(organism, SosnowskiBarszcz):
+                distance = abs(organism.getPosition().getX() - cyberSheep.getPosition().getX()) + abs(organism.getPosition().getY() - cyberSheep.getPosition().getY())
+                if distance < closestDistance:
+                    closestDistance = distance
+                    closestBarszcz = organism
+        return closestBarszcz.getPosition()
+
 
 
 

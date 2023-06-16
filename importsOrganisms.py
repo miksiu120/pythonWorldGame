@@ -9,3 +9,4 @@ from SosnowskiBarszcz import SosnowskiBarszcz
 from Belladonna import Belladonna
 from Human import Human
 from Dandelion import Dandelion
+from CyberSheep import CyberSheep
